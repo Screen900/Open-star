@@ -1,0 +1,103 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background-color: #000;
+  color: #fff;
+}
+
+h1 {
+  margin: 20px 0;
+}
+
+#game-area {
+  position: relative;
+  width: 80%;
+  height: 400px;
+  margin: 20px auto;
+  border: 2px solid #fff;
+  background-color: #1a1a1a;
+  overflow: hidden;
+}
+
+/* تحسين شكل النجوم */
+.star {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #ffeb3b, #ffc107, #ff9800);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px #ffc107, 
+    0 0 20px #ffc107, 
+    0 0 30px #ff9800, 
+    inset 0 0 10px #fff;
+  animation: pulse 1.5s infinite, spin 1.2s linear infinite, fadeOut 2s linear forwards;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+.bomb {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  background: radial-gradient(circle, #ff0000, #8b0000, #660000);
+  border-radius: 50%;
+  box-shadow: 
+    0 0 10px #ff0000, 
+    0 0 20px #8b0000, 
+    0 0 30px #660000, 
+    inset 0 0 10px #440000;
+  animation: shake 0.5s ease-in-out infinite, fadeOut 2s linear forwards;
+  cursor: pointer;
+  transform: scale(1);
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg) scale(1);
+  }
+  100% {
+    transform: rotate(360deg) scale(1.1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    box-shadow: 
+      0 0 10px #ffc107, 
+      0 0 20px #ffc107, 
+      0 0 30px #ff9800, 
+      inset 0 0 10px #fff;
+  }
+  50% {
+    box-shadow: 
+      0 0 15px #ffc107, 
+      0 0 25px #ffc107, 
+      0 0 40px #ff9800, 
+      inset 0 0 15px #fff;
+  }
+}
+
+@keyframes shake {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(-3px, 3px) scale(1.05);
+  }
+  50% {
+    transform: translate(3px, -3px) scale(1.05);
+  }
+  75% {
+    transform: translate(-3px, -3px) scale(1.05);
+  }
+}
